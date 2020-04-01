@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +674,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Color_Namer" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,11 +704,83 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Color_Namer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="284" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UAk-Qw-tAw">
+                                <rect key="frame" x="50" y="199" width="184" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="#" drawsBackground="YES" id="2vL-b9-0Kh">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n5b-FO-Mo3">
+                                <rect key="frame" x="44" y="55" width="196" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="0k4-Tr-tU8"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Run" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zfc-f8-NRQ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="runButtonTapped:" target="XfG-lQ-9wD" id="beA-oD-U0Q"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AMC-7o-EN6">
+                                <rect key="frame" x="50" y="128" width="184" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Color Name" drawsBackground="YES" id="Pjr-wR-0R2">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="khr-rU-NBf">
+                                <rect key="frame" x="48" y="222" width="188" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Enter 6 Digit Hex Code" id="JAm-91-CCQ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="h8Q-SS-5j8">
+                                <rect key="frame" x="48" y="151" width="188" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Copy color name after running" id="Csr-2n-Cc8">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="h8Q-SS-5j8" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="50" id="0tj-vL-ZOZ"/>
+                            <constraint firstItem="khr-rU-NBf" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="50" id="7SO-vo-3ME"/>
+                            <constraint firstItem="AMC-7o-EN6" firstAttribute="leading" secondItem="UAk-Qw-tAw" secondAttribute="leading" id="8M2-TO-uEb"/>
+                            <constraint firstItem="n5b-FO-Mo3" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="GF2-UI-heE"/>
+                            <constraint firstItem="AMC-7o-EN6" firstAttribute="top" secondItem="UAk-Qw-tAw" secondAttribute="bottom" constant="50" id="GPv-Em-4Nf"/>
+                            <constraint firstItem="UAk-Qw-tAw" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="50" id="NH7-YT-Tjj"/>
+                            <constraint firstAttribute="trailing" secondItem="n5b-FO-Mo3" secondAttribute="trailing" constant="50" id="NpB-Re-Te5"/>
+                            <constraint firstItem="h8Q-SS-5j8" firstAttribute="leading" secondItem="AMC-7o-EN6" secondAttribute="leading" id="P4R-Tq-Up8"/>
+                            <constraint firstItem="UAk-Qw-tAw" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="U1G-tc-PVH"/>
+                            <constraint firstItem="AMC-7o-EN6" firstAttribute="top" secondItem="h8Q-SS-5j8" secondAttribute="bottom" constant="2" id="Wr2-iF-BDN"/>
+                            <constraint firstItem="n5b-FO-Mo3" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="50" id="dK0-2s-wIb"/>
+                            <constraint firstItem="khr-rU-NBf" firstAttribute="leading" secondItem="UAk-Qw-tAw" secondAttribute="leading" id="eLn-Dr-Paq"/>
+                            <constraint firstItem="UAk-Qw-tAw" firstAttribute="top" secondItem="khr-rU-NBf" secondAttribute="bottom" constant="2" id="fli-aS-Bj9"/>
+                            <constraint firstAttribute="trailing" secondItem="AMC-7o-EN6" secondAttribute="trailing" constant="50" id="gav-tL-Zu7"/>
+                            <constraint firstItem="AMC-7o-EN6" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="50" id="jNm-fJ-oQq"/>
+                            <constraint firstAttribute="trailing" secondItem="h8Q-SS-5j8" secondAttribute="trailing" constant="50" id="r0T-2r-Blu"/>
+                            <constraint firstItem="n5b-FO-Mo3" firstAttribute="top" secondItem="AMC-7o-EN6" secondAttribute="bottom" constant="45" id="ruU-1F-xrh"/>
+                            <constraint firstAttribute="trailing" secondItem="khr-rU-NBf" secondAttribute="trailing" constant="50" id="wKw-kS-fOw"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="colorNameTextField" destination="AMC-7o-EN6" id="Awg-2j-6us"/>
+                        <outlet property="hexTextField" destination="UAk-Qw-tAw" id="c5i-9z-Mot"/>
+                        <outlet property="runButton" destination="n5b-FO-Mo3" id="OGC-KN-9aS"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
